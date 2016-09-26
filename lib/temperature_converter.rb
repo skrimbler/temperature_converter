@@ -11,9 +11,7 @@ class TemperatureConverter
   require 'net/http'
   require 'uri'
 
-  def initialize temperature
-    @temperature = temperature
-  end
+
 
   def commandline_temperature converter
     @temperature = converter.first.to_f
@@ -45,6 +43,11 @@ class TemperatureConverter
       puts "<div>"+(@temperature * 9/5 +32).to_s + " °F"+"</div>"
       puts "<div>"+(@temperature +273.15).to_s + " K"+"</div>"
     puts "</div>"
+  end
+
+  private
+  def initialize temperature
+    @temperature = temperature
   end
 
 end
