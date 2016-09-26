@@ -20,11 +20,11 @@ class TemperatureConverter
   end
 
   def file_temperature converter
-    @temperature = converter.to_f
+    @temperature = File.open(converter).read.to_f
   end
 
   def url_temperature converter
-    @temperature = converter.to_f
+    @temperature = Net::HTTP.get(URI.parse(converter)).to_f
   end
 
   def to_text
@@ -47,20 +47,4 @@ class TemperatureConverter
     puts "</div>"
   end
 
-
-  # def file_temperature filename
-  # end
-  #
-  # def url_temperature url
-  #   @url = Net::HTTP.get(URI.parse("http://labict.be/software-engineering/temperature/api/temperature/fake")).to_f
-  # end
-  #
-  # def convert
-  # end
-
-
-
 end
-
-#input = ARGV.first.to_f
-#input = File.open('temperature.txt').read.to_f
