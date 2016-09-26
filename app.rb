@@ -1,13 +1,18 @@
-require './lib/tem_converter.rb'
+require './lib/temperature_converter.rb'
 
-require 'net/http'
-require 'uri'
+converter = TemperatureConverter.new converter
 
-input =  Net::HTTP.get(URI.parse("http://labict.be/software-engineering/temperature/api/temperature/fake")).to_f
+converter.commandline_temperature ARGV
+puts converter.to_text
+puts converter.to_json
+puts converter.to_html
 
+converter.file_temperature "temperature.txt"
+puts converter.to_text
+puts converter.to_json
+puts converter.to_html
 
-#input = ARGV.first.to_f
-#input = File.open('temperature.txt').read.to_f
-
-tem_converter = TemConverter.new input
-puts tem_converter.convert
+converter.url_temperature "http://labict.be/software-engineering/temperature/api/temperature/fake"
+puts converter.to_text
+puts converter.to_json
+puts converter.to_html
