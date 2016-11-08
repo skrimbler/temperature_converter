@@ -11,7 +11,11 @@ class TemperatureConverter
   require 'net/http'
   require 'uri'
 
+  attr_accessor :temperature
 
+  def initialize
+    @temperature =0.0
+  end
 
   def commandline_temperature converter
     @temperature = converter.first.to_f
@@ -26,6 +30,10 @@ class TemperatureConverter
   end
 
   def to_text
+
+    printer = TextPrinter.new @temperature
+    printer.print
+
     puts "Temperature: "
     puts (@temperature).to_s + " °C"
     puts (@temperature * 9/5 +32).to_s + " °F"
@@ -33,11 +41,19 @@ class TemperatureConverter
   end
 
   def to_json
+
+    printer = JsonPrinter.new @temperature
+    printer.print
+
     puts "{celsius: " + (@temperature).to_s + ", fahrenheit: " + (@temperature * 9/5 +32).to_s +
           ", kelvin: " + (@temperature +273.15).to_s + "}"
   end
 
   def to_html
+
+    printer = HtmlPrinter.new @temperature
+    printer.print
+
     puts "<div>"
       puts "<div>"+(@temperature).to_s + " °C"+"</div>"
       puts "<div>"+(@temperature * 9/5 +32).to_s + " °F"+"</div>"
