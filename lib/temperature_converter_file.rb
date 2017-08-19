@@ -15,7 +15,7 @@ class TemperatureConverterFile
 #start converting by reading
 
 		def self.file_temperature path
-			TemperatureReadFile.file_temperature path
+			TemperatureConvert.convert(TemperatureReadFile.file_temperature (path))
 		end
 
 

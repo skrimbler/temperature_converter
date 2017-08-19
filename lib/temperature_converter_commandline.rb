@@ -1,3 +1,4 @@
+
 #!/usr/bin/env ruby
 require './lib/temperature_read_commandline.rb'
 
@@ -14,6 +15,6 @@ class TemperatureConverterCommandline
 #start converting by reading
 
 		def self.commandline_temperature temp
-			TemperatureReadCommandline.commandline_temperature temp
+			TemperatureConvert.convert(TemperatureReadCommandline.commandline_temperature (temp))
 		end
 end

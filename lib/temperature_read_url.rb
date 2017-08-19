@@ -17,7 +17,7 @@ class TemperatureReadUrl
 #reading
 
 		def self.url_temperature url
-			TemperatureOutput.show_output(TemperatureConvert.convert(open_url(url).to_f))
+			open_url(url).to_f
 		end
 
 		def self.open_url(url)

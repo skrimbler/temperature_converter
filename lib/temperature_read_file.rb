@@ -18,7 +18,7 @@ class TemperatureReadFile
 		def self.file_temperature path
 			@path = path
 			f = File.open(path, "r")
-			TemperatureOutput.show_output(TemperatureConvert.convert(f.sysread(6).to_f))
+			temp = f.sysread(6).to_f
 		end
 
 

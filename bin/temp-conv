@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-require './lib/temperature_converter.rb'
+require 'temperature_converter_DaLe'
 require 'colorize'
 require 'optparse'
 

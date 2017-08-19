@@ -5,7 +5,6 @@ class TemperatureConverterTtl
 
 
 	attr_reader :temp
-	attr_reader :origin_rb
 
 	def initialize
 		@temp = 0
@@ -14,8 +13,8 @@ class TemperatureConverterTtl
 #---------------------------------------------------------------------
 #start converting by reading
 
-		def self.ttl_temperature origin_rb
-			TemperatureReadTtl.ttl_temperature origin_rb
+		def self.ttl_temperature
+			TemperatureConvert.convert(TemperatureReadTtl.ttl_temperature)
 		end
 
 end

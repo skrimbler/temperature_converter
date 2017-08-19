@@ -14,7 +14,7 @@ class TemperatureConverterUrl
 #start converting by reading
 
 		def self.url_temperature url
-			TemperatureReadUrl.url_temperature url
+			TemperatureConvert.convert(TemperatureReadUrl.url_temperature (url))
 		end
 
 end
