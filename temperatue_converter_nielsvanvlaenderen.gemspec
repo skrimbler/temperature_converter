@@ -1,9 +1,9 @@
 Gem::Specification.new do |s|
   s.name        = 'temperature_converter_nielsvanvlaenderen'
   s.version     = '1.0.0'
-  s.date        = '2016-11-18'
-  s.summary     = "Easy commands to convert temperatures"
-  s.description = "commandline application to convert temperature"
+  s.date        = '2016-2017'
+  s.summary     = "Course system programming"
+  s.description = "Commandline application to convert temperatures"
   s.authors     = ["Niels Van Vlaenderen"]
   s.email       = 'skrimbler@hotmail.com'
   s.files       = Dir["lib/**/*.rb"]

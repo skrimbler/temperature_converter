@@ -1,40 +1,50 @@
 #!/usr/bin/env ruby
 
-require './lib/temperature_converter_commandline.rb'
-require './lib/temperature_converter_file.rb'
-require './lib/temperature_converter_url.rb'
-require './lib/temperature_converter_ttl.rb'
+require './lib/temperature.rb'
+require './lib/print_html.rb'
+require './lib/print_json.rb'
+require './lib/print_text.rb'
+require './lib/read_cli.rb'
+require './lib/read_file.rb'
+require './lib/read_mqtt.rb'
+require './lib/read_url.rb'
 
 class TemperatureConverter
 
 
-	attr_reader :temp
-
-
-	def initialize
-		@temp = 0
-	end
-
-#---------------------------------------------------------------------
-#start converting by reading
-
-		def self.commandline_temperature temp
-			TemperatureConverterCommandline.commandline_temperature temp
+		def commandline_temperature cliVar
+			cli = ReadCli.new cliVar
+			cli.read
 		end
 
-		def self.file_temperature path
-			TemperatureConverterFile.file_temperature path
+		def file_temperature fileVar
+			file = ReadFile.new
+			file.read(fileVar)
 		end
 
-    def self.url_temperature url
-      TemperatureConverterUrl.url_temperature url
+    def url_temperature urlVar
+      url = ReadUrl.new
+			url.read(urlVer)
     end
 
-		def self.ttl_temperature origin_rb
-			TemperatureConverterTtl.ttl_temperature origin_rb
+		def mqtt_reader mqttVar
+			mqtt = ReadMqtt.new
+			mqtt.read(mqttVar)
 		end
 
+		def to_text
+			tprint = PrintText.new
+			tprint.print
+		end
 
+		def to_json
+			jprint = PrintJson.new
+			jprint.print
+		end
 
+		def to_html
+			hprint = PrintHtml.new
+			hprint.print
+		end
 
 end

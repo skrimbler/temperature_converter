@@ -1,23 +1,13 @@
 #!/usr/bin/env ruby
-require './lib/temperature_convert.rb'
-require './lib/temperature_output.rb'
+class ReadCli
 
-class TemperatureReadCommandline
+	attr_reader :temperature
 
-
-	attr_reader :temp
-
-	def initialize
-		@temp = 0
+	def initialize temperature
+		$temperature = temperature
 	end
 
-#---------------------------------------------------------------------
-#reading
-		def self.commandline_temperature temp
-			temp = temp
-			temp
-		end
-
-
-
+	def read
+ 		$temperature
+	end
 end

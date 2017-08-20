@@ -1,27 +1,16 @@
 #!/usr/bin/env ruby
 require 'net/http'
 require 'uri'
-require './lib/temperature_convert.rb'
-require './lib/temperature_output.rb'
 
-class TemperatureReadUrl
+class ReadUrl
 
-
-	attr_reader :temp
+	attr_reader :temperature
 
 	def initialize
-		@temp = 0
+		$temperature
 	end
 
-#---------------------------------------------------------------------
-#reading
-
-		def self.url_temperature url
-			open_url(url).to_f
-		end
-
-		def self.open_url(url)
-			Net::HTTP.get(URI.parse(url))
-		end
-
+	def read url
+		$temperature = Net::HTTP.get(URI.parse(url))
+	end
 end

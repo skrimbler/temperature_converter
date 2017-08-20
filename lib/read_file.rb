@@ -1,25 +1,13 @@
 #!/usr/bin/env ruby
-require './lib/temperature_convert.rb'
-require './lib/temperature_output.rb'
+class ReadFile
 
-class TemperatureReadFile
-
-
-	attr_reader :temp
+	attr_reader :temperature
 
 	def initialize
-		@temp = 0
+		$temperature
 	end
 
-#---------------------------------------------------------------------
-#reading
-
-
-		def self.file_temperature path
-			@path = path
-			f = File.open(path, "r")
-			temp = f.sysread(6).to_f
-		end
-
-
+	def read file
+ 		$temperature = File.open(file).read
+	end
 end

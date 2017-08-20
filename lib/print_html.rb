@@ -1,22 +1,16 @@
 #!/usr/bin/env ruby
+require './lib/temperature.rb'
 
+class PrintHtml
 
-class TemperatureOutputToHtml
+	attr_reader :temperature
 
-
-	attr_reader :temp
-
-#---------------------------------------------------------------------
-#outputting
-
-
-		def self.to_html(celcius, fahrenheit, kelvin)
+		def print 
+			html = Temperature.new
 			"<div>\n" +
-					"<div>#{celcius} °C</div>\n" +
-					"<div>#{fahrenheit} °F</div>\n" +
-					"<div>#{kelvin} K</div>\n" +
-				"</div>"
+			"<div>" + html.celcius.to_s + 			"°C</div>\n" +
+			"<div>" + html.to_fahrenheit.to_s + "°F</div>\n" +
+			"<div>" +	html.to_kelvin.to_s +			"K</div>\n" +
+			"</div>"
 		end
-
-
 end

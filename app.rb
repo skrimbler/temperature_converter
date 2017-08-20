@@ -1,64 +1,43 @@
 #!/usr/bin/env ruby
-require './lib/temperature_converter.rb'
-require 'colorize'
+require './lib/temperature_converter_nielsvanvlaenderen'
 require 'optparse'
 
-cmdl_input = ARGV[0]
+# cmdl_input = ARGV[0]
 file_path = "file.txt"
 url_path = "http://labict.be/software-engineering/temperature/api/temperature/fake"
 
+converter = TemperatureConverter.new
+
+options = {}
 OptionParser.new do |opts|
   opts.banner = "Usage: ruby app.rb [options]"
 
-  opts.on("-v", "--[no-]verbose", "Run verbosely") do |v|
-    puts v.inspect
+  opts.on("-t temperature", "--temperature temperature", "Input temperature") do |temerature|
+    converter.commandline_temperature temperature
   end
 
-
-  opts.on("-c MYCOMMAND", "--command MYCOMMAND", Float , "Commandline temperature") do |mycommand|
-    puts "output : read from commandline"
-    @conversion = TemperatureConverterCommandline.commandline_temperature mycommand
+  opts.on("-f file", "--file file" , "Input path to temperature file") do |file|
+    convert.file_temperature file
   end
 
-
-  opts.on("-f [MYFILE]", "--file [MYFILE]", String , "File path , null = default file") do |myfile|
-    if (myfile.nil?)
-        myfile = file_path
+  opts.on("-u url", "--url url", "Input URL to temperature") do |url|
+    converter.url_temperature rul
     end
-    puts "output : read from file"
-    @conversion = TemperatureConverterFile.file_temperature myfile
+
+  opts.on("-m", "--mqtt", "Input Mqtt") do |mqtt|
+    converter.mqtt_reader mqtt
   end
 
-  opts.on("-u [MYURL]", "--url [MYURL]", String , "Url path , null = default Url") do |myurl|
-    if (myurl.nil?)
-      myurl = url_path
-    end
-    puts "output : read from url"
-    @conversion = TemperatureConverterUrl.url_temperature myurl
+  opts.on("--text" , "Output as text") do |text|
+    puts converter.to_text
   end
 
-  opts.on("-m", "--mqtt" , "MQTT yes or no") do |mymqtt|
-    puts "output : read from ttn"
-    # Thread.new do
-      @conversion = TemperatureConverterTtl.ttl_temperature
-    # end
+  opts.on("--html", "Output as HTML") do |html|
+    puts converter.to_html
   end
 
-  opts.on("-t", "--text", Float , "Show text only") do |t|
-    @show_all=false
-    TemperatureOutput.show_to_text(@conversion)
-  end
-  opts.on("-w", "--web", Float , "Show html only") do |t|
-    @show_all=false
-    TemperatureOutput.show_to_html(@conversion)
-  end
-  opts.on("-j", "--json", Float , "Show json only") do |t|
-    @show_all=false
-    TemperatureOutput.show_to_json(@conversion)
-  end
-
-  opts.on("-a", "--all", Float , "Show all output formats") do |t|
-    TemperatureOutput.show_output(@conversion)
+  opts.on("--json", "Output as JSON") do |json|
+    puts converter.to_json
   end
 
 end.parse!
