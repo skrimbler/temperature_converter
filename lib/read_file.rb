@@ -7,6 +7,7 @@ class ReadFile
 	end
 
 	def file_temperature
- 		$temperature = File.open("file.txt","r").sysread(6).to_f
+		afile = File.new("file.txt","r")
+		$temperature = afile.sysread(6).to_f
 	end
 end

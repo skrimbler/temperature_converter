@@ -2,26 +2,28 @@
 require './lib/temperature_converter_nielsvanvlaenderen'
 require 'optparse'
 
+temp = Converter.new
+
 # cmdl_input = ARGV[0]
-file_path = "file.txt"
-url_path = "http://labict.be/software-engineering/temperature/api/temperature/fake"
+# file_path = "file.txt"
+# url_path = "http://labict.be/software-engineering/temperature/api/temperature/fake"
 
-converter = TemperatureConverter.new
+# converter = TemperatureConverter.new
 
-options = {}
+# options = {}
 OptionParser.new do |opts|
   opts.banner = "Usage: ruby app.rb [options]"
 
-  opts.on("-t temperature", "--temperature temperature", "Input temperature") do |temerature|
-    converter.commandline_temperature temperature
+  opts.on("-t temperature", "--temperature temperature",Float, "Input temperature") do |t|
+    temp.commandline_temperature t
   end
 
-  opts.on("-f file", "--file file" , "Input path to temperature file") do |file|
-    converter.file_temperature file
+  opts.on("-f file", "--file file" , "Input path to temperature file") do |f|
+    temp.file_temperature
   end
 
-  opts.on("-u url", "--url url", "Input URL to temperature") do |url|
-    converter.url_temperature url
+  opts.on("-u url", "--url url", "Input URL to temperature") do |u|
+    temp.url_temperature('http://labict.be/software-engineering/temperature/api/temperature/fake')
     end
 
   opts.on("-m", "--mqtt", "Input Mqtt") do |mqtt|
@@ -29,15 +31,15 @@ OptionParser.new do |opts|
   end
 
   opts.on("--text" , "Output as text") do |text|
-    puts converter.to_text
+    puts temp.to_text
   end
 
   opts.on("--html", "Output as HTML") do |html|
-    puts converter.to_html
+    puts temp.to_html
   end
 
   opts.on("--json", "Output as JSON") do |json|
-    puts converter.to_json
+    puts temp.to_json
   end
 
 end.parse!

@@ -9,43 +9,45 @@ require './lib/read_file.rb'
 require './lib/read_mqtt.rb'
 require './lib/read_url.rb'
 
-class TemperatureConverter
-
-
-		def commandline_temperature cliVar
-			cli = ReadCli.new cliVar
-			cli.read
-		end
-
-		def file_temperature fileVar
-			file = ReadFile.new
-			file.read(fileVar)
-		end
-
-    def url_temperature urlVar
-      url = ReadUrl.new
-			puts "test"
-			url.read(urlVar)
-    end
-
-		def mqtt_reader mqttVar
-			mqtt = ReadMqtt.new
-			mqtt.read(mqttVar)
-		end
-
+class Converter
 		def to_text
-			tprint = PrintText.new
-			tprint.print
+			newtemp = PrintText.new
+			newtemp = print_text
 		end
 
 		def to_json
-			jprint = PrintJson.new
-			jprint.print
+			newtemp = PrintJson.new
+			newtemp = print_json
 		end
 
 		def to_html
-			hprint = PrintHtml.new
-			hprint.print
+			newtemp = PrintHtml.new
+			newtemp = print_html
 		end
+
+
+
+		def commandline_temperature temperature
+			newtemp = ReadCli.new temperature
+			newtemp.to_celcius
+		end
+
+		def file_temperature
+			newtemp = ReadFile.new
+			newtemp.file_temperature
+		end
+
+    def url_temperature urlVar
+      newtemp = ReadUrl.new
+			newtemp.url_temperature(urlVar)
+    end
+
+		def mqtt_reader mqttVar
+			newtemp = ReadMqtt.new
+			newtemp.read(mqttVar)
+		end
+
+
+
 
 end
