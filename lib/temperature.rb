@@ -1,6 +1,4 @@
-#!/usr/bin/env ruby
-
-class Temperature
+class Convert
 
 	KELVIN = 273.15
 	FAHRENHEIT_OFFSET = 32
@@ -9,15 +7,15 @@ class Temperature
 	attr_reader :temperature
 
   def to_celcius
- 		$temperature.to_f
+ 		$temperature
  	end
 
 	def to_fahrenheit
-	 	($temperature.to_f * FAHRENHEIT_SLOPE) + FAHRENHEIT_OFFSET
+	 	($temperature * FAHRENHEIT_SLOPE) + FAHRENHEIT_OFFSET
 	end
 
 	 def to_kelvin
-	 	$temperature.to_f + KELVIN
+	 	$temperature + KELVIN
 	 end
 
 end

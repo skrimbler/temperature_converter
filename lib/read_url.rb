@@ -1,4 +1,3 @@
-#!/usr/bin/env ruby
 require 'net/http'
 require 'uri'
 
@@ -10,7 +9,7 @@ class ReadUrl
 		$temperature
 	end
 
-	def read url
-		$temperature = Net::HTTP.get(URI.parse(url))
+	def url_temperature(url)
+		$temperature = Net::HTTP.get(URI.parse(url)).to_f
 	end
 end

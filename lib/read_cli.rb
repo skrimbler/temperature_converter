@@ -1,9 +1,8 @@
-#!/usr/bin/env ruby
 class ReadCli
 
 	attr_reader :temperature
 
-	def initialize temperature
+	def initialize (temperature)
 		$temperature = temperature
 	end
 
