@@ -17,11 +17,11 @@ OptionParser.new do |opts|
   end
 
   opts.on("-f file", "--file file" , "Input path to temperature file") do |file|
-    convert.file_temperature file
+    converter.file_temperature file
   end
 
   opts.on("-u url", "--url url", "Input URL to temperature") do |url|
-    converter.url_temperature rul
+    converter.url_temperature url
     end
 
   opts.on("-m", "--mqtt", "Input Mqtt") do |mqtt|

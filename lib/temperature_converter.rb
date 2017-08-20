@@ -24,7 +24,8 @@ class TemperatureConverter
 
     def url_temperature urlVar
       url = ReadUrl.new
-			url.read(urlVer)
+			puts "test"
+			url.read(urlVar)
     end
 
 		def mqtt_reader mqttVar
