@@ -1,5 +1,5 @@
 require 'json'
-require './lib/temperature.rb'
+require "temperature"
 
 class PrintJson
 

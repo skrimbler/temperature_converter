@@ -1,5 +1,5 @@
-#!/usr/bin/env ruby
-require './lib/temperature_converter_nielsvanvlaenderen'
+
+require "temperature_converter"
 # require 'net/http'
 # require 'uri'
 require 'optparse'
@@ -71,7 +71,7 @@ OptionParser.new do |opts|
   end
 
   opts.on("-m mqtt","--mqtt mqtt","convert from mqtt") do |mqtt|
-  converter.mxtt_reader(ttn_host, port, username, password, sensor_id)
+  converter.mqtt_reader(ttn_host, port, username, password, sensor_id)
   end
 
   opts.on("--text","give output in plain text") do |text|

@@ -1,4 +1,4 @@
-require './lib/temperature.rb'
+require "temperature"
 
 class PrintText
 

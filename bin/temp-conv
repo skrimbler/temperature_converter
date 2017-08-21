@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-require './lib/temperature_converter_nielsvanvlaenderen'
+require 'temperature_converter_nielsvanvlaenderen'
 # require 'net/http'
 # require 'uri'
 require 'optparse'
