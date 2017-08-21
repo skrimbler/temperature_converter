@@ -1,4 +1,4 @@
-class Convert
+class Temperature
 
 	KELVIN = 273.15
 	FAHRENHEIT_OFFSET = 32
@@ -7,15 +7,15 @@ class Convert
 	attr_reader :temperature
 
   def to_celcius
- 		$temperature
+ 		$temperature.to_f
  	end
 
 	def to_fahrenheit
-	 	($temperature * FAHRENHEIT_SLOPE) + FAHRENHEIT_OFFSET
+	 	($temperature.to_f * FAHRENHEIT_SLOPE) + FAHRENHEIT_OFFSET
 	end
 
 	 def to_kelvin
-	 	$temperature + KELVIN
+	 	$temperature.to_f + KELVIN
 	 end
 
 end

@@ -1,9 +1,8 @@
-#!/usr/bin/env ruby
 require 'rubygems'
 require 'mqtt'
 require 'json'
 
-class ReadMqtt
+class MQTTReader
 
 	attr_reader :temperature
 
@@ -11,13 +10,17 @@ class ReadMqtt
 	# 	$temperature
 	# end
 
-	def mqtt_temperature
+	def read (ttn_host, port, username, password, sensor_id)
 			# countCycles=0
       MQTT::Client.connect(
-            :host => 'staging.thethingsnetwork.org',
-            :port => '1883',
-            :username => '70B3D57ED00012B2',
-            :password => 'c8iuTSccnypK1eoFzEb/OoqB2FVAiFg/aEaYesnNf4w='
+            :host => ttn_host,
+						# 'staging.thethingsnetwork.org',
+            :port => port,
+						# '1883',
+            :username => username,
+						# '70B3D57ED00012B2',
+            :password => password
+						# 'c8iuTSccnypK1eoFzEb/OoqB2FVAiFg/aEaYesnNf4w='
           ) do |c|
         c.get(sensor_id) do |topic,message|
           obj = JSON.parse("#{message}")

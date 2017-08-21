@@ -1,4 +1,4 @@
-class ReadCli
+class CommandlineReader
 
 	attr_reader :temperature
 

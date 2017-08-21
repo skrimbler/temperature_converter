@@ -1,5 +1,3 @@
-#!/usr/bin/env ruby
-
 require './lib/temperature.rb'
 require './lib/print_html.rb'
 require './lib/print_json.rb'
@@ -9,43 +7,45 @@ require './lib/read_file.rb'
 require './lib/read_mqtt.rb'
 require './lib/read_url.rb'
 
-class Converter
+class TemperatureConverter
+
+		def commandline_temperature argument
+			cmdreader = CommandlineReader.new argument
+			cmdreader.read
+		end
+
+		def file_temperature file
+			freader = FileReader.new
+			freader.read(file)
+		end
+
+		def url_temperature url
+			ureader = URLReader.new
+			ureader.read(url)
+		end
+
+		def mqtt_reader (ttn_host, port, username, password, sensor_id)
+			mreader = MQTTReader.new
+			mreader.read(ttn_host, port, username, password, sensor_id)
+		end
+
 		def to_text
-			newtemp = PrintText.new
-			newtemp = print_text
+			tprint = PrintText.new
+			tprint.print
 		end
 
 		def to_json
-			newtemp = PrintJson.new
-			newtemp = print_json
+			jprint = PrintJson.new
+			jprint.print
 		end
 
 		def to_html
-			newtemp = PrintHtml.new
-			newtemp = print_html
+			hprint = PrintHtml.new
+			hprint.print
 		end
 
 
 
-		def commandline_temperature temperature
-			newtemp = ReadCli.new temperature
-			newtemp.to_celcius
-		end
-
-		def file_temperature
-			newtemp = ReadFile.new
-			newtemp.file_temperature
-		end
-
-    def url_temperature urlVar
-      newtemp = ReadUrl.new
-			newtemp.url_temperature(urlVar)
-    end
-
-		def mqtt_reader mqttVar
-			newtemp = ReadMqtt.new
-			newtemp.read(mqttVar)
-		end
 
 
 

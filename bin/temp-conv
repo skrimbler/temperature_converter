@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 require './lib/temperature_converter_nielsvanvlaenderen'
-require 'net/http'
-require 'uri'
+# require 'net/http'
+# require 'uri'
 require 'optparse'
 
 # cmdl_input = ARGV[0]
@@ -43,37 +43,48 @@ require 'optparse'
 #   end
 #
 # end.parse!
+ttn_host = "staging.thethingsnetwork.org"
+port = 1883
+username = '70B3D57ED00012B2',
+password = 'c8iuTSccnypK1eoFzEb/OoqB2FVAiFg/aEaYesnNf4w='
+sensor_id = '70B3D57ED00012B2/devices/00000000AE6C63E4/up'
 
+converter = TemperatureConverter.new
+
+options = {}
 
 OptionParser.new do |opts|
   opts.banner = "Usage: ruby app.rb [options]"
 
-  opts.on("-t [FLOAT]","--temperature [FLOAT]",Float,"Give number to convert") do |t|
-    @newt = Celsius.new(t).normal
-    @newf = Fahrenheit.new(@newt).ctof
-    @newk = Kelvin.new(@newt).ctok
-  end
-  opts.on("-f","--file","convert from file") do |f|
-    @newt =Celsius.file_temperature
-    @newf = Fahrenheit.new(@newt).ctof
-    @newk = Kelvin.new(@newt).ctok
-
-  end
-  opts.on("-u","--url","convert from url") do |u|
-    @newt =Celsius.url_temperature ("http://labict.be/software-engineering/temperature/api/temperature/fake")
-    @newf = Fahrenheit.new(@newt).ctof
-    @newk = Kelvin.new(@newt).ctok
+  opts.on("-t temperature","--temperature temperature","Give number to convert") do |temperature|
+    converter.commandline_temperature temperature
   end
 
-  opts.on("-c","--cmd","give output in plain text") do |c|
-  puts Screen.new(@newt,@newf,@newk).to_text
+
+  opts.on("-f file","--file file","convert from file") do |file|
+    converter.file_temperature file
   end
 
-  opts.on("-j","--json","give output in JSON string") do |j|
-  puts Screen.new(@newt,@newf,@newk).to_json
+
+  opts.on("-u url","--url url","convert from url") do |url|
+  converter.url_temperature url
   end
 
-  opts.on("-h","--html","give output in html format") do |h|
-  puts Screen.new(@newt,@newf,@newk).to_html
+  opts.on("-m mqtt","--mqtt mqtt","convert from mqtt") do |mqtt|
+  converter.mxtt_reader(ttn_host, port, username, password, sensor_id)
+  end
+
+  opts.on("--text","give output in plain text") do |text|
+    puts converter.to_text
+  end
+
+
+  opts.on("--json","give output in JSON string") do |json|
+    puts converter.to_json
+  end
+
+
+  opts.on("--html","give output in html format") do |html|
+    puts converter.to_html
   end
 end.parse!

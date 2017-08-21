@@ -1,4 +1,4 @@
-class ReadFile
+class FileReader
 
 	attr_reader :temperature
 
@@ -6,8 +6,7 @@ class ReadFile
 		$temperature
 	end
 
-	def file_temperature
-		afile = File.new("file.txt","r")
-		$temperature = afile.sysread(6).to_f
+	def read file
+		$temperature = File.open(file).read
 	end
 end
