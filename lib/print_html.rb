@@ -1,4 +1,4 @@
-require "temperature"
+require "./lib/temperature.rb"
 
 class PrintHtml
 
@@ -7,13 +7,13 @@ class PrintHtml
 		def print
 			htemperature = Temperature.new
 			puts "<div>"
-			puts "	<div>" + htemperature.celcius.to_s + " °C </div>"
+			puts "	<div>" + htemperature.celsius.to_s + " °C </div>"
 			puts "	<div>" + htemperature.to_fahrenheit.to_s + " °F </div>"
 			puts "	<div>" + htemperature.to_kelvin.to_s + " K </div>"
 			puts "</div>"
 
 			# tmp = Convert.new
-			# cel = tmp.to_celcius
+			# cel = tmp.to_celsius
 			# far = tmp.to_fahrenheit
 			# kel = tmp.to_kelvin
 			#

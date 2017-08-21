@@ -44,7 +44,7 @@ require 'optparse'
 #
 # end.parse!
 ttn_host = "staging.thethingsnetwork.org"
-port = 1883
+port = '1883'
 username = '70B3D57ED00012B2',
 password = 'c8iuTSccnypK1eoFzEb/OoqB2FVAiFg/aEaYesnNf4w='
 sensor_id = '70B3D57ED00012B2/devices/00000000AE6C63E4/up'

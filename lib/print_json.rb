@@ -1,5 +1,5 @@
 require 'json'
-require "temperature"
+require "./lib/temperature.rb"
 
 class PrintJson
 
@@ -7,11 +7,11 @@ class PrintJson
 
 		def print
 			jtemperature = Temperature.new
-			json_temperature = {:Celsius => jtemperature.celcius.to_s, :Fahrenheit => jtemperature.to_fahrenheit.to_s, :Kelvin => jtemperature.to_kelvin.to_s}
-			puts JSON.pretty_generate(json_temperature)
+
+			puts "{\"Celsius:  #{jtemperature.celsius.to_s}\"; \"Fahrenheit: #{jtemperature.to_fahrenheit.to_s}\"; \"Kelvin: #{jtemperature.to_kelvin.to_s}\"}"
 
 			# tmp = Convert.new
-			# cel = tmp.to_celcius
+			# cel = tmp.to_celsius
 			# far = tmp.to_fahrenheit
 			# kel = tmp.to_kelvin
 			# puts "{Celsius: #{cel}, fahrenheit: #{far}, kelvin: #{kel}}"

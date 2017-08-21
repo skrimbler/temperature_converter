@@ -1,5 +1,5 @@
-
-require "temperature_converter"
+# require "./lib/temperature_converter"
+require "./lib/temperature_converter.rb"
 # require 'net/http'
 # require 'uri'
 require 'optparse'

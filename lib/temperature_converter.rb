@@ -1,11 +1,11 @@
-require "temperature"
-require "print_html"
-require "print_text"
-require "print_json"
-require "read_mqtt"
-require "read_cli"
-require "read_file"
-require "read_url"
+require "./lib/temperature.rb"
+require "./lib/print_html.rb"
+require "./lib/print_text.rb"
+require "./lib/print_json.rb"
+require "./lib/read_mqtt.rb"
+require "./lib/read_cli.rb"
+require "./lib/read_file.rb"
+require "./lib/read_url.rb"
 
 class TemperatureConverter
 

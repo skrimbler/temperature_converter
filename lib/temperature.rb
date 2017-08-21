@@ -6,7 +6,7 @@ class Temperature
 
 	attr_reader :temperature
 
-  def to_celcius
+  def celsius
  		$temperature.to_f
  	end
 

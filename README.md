@@ -11,7 +11,7 @@ Summary:
 
 ## 1  Description
 
-This app is designed to convert temperatures from Celcius into Kelvin and Farenheit.
+This app is designed to convert temperatures from Celsius into Kelvin and Farenheit.
 The input of the values can come from different locations. From the CLI, a textfile or a (fake) URL.
 
 The output of the converted temperature can be shown as text, JSON or HTML.

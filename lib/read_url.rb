@@ -10,6 +10,6 @@ class URLReader
 	end
 
 	def read url
-		$temperature = Net::HTTP.get(URI.parse(url))
+		$temperature = Net::HTTP.get(URI.parse(url)).to_f
 	end
 end
