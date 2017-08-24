@@ -1,116 +1,95 @@
-# Product Name
-> Short blurb about what your product does.
+# Temperature Converter Application
+> Convert temperatures in Celsius from commandline, textfile, url or mqtt
+> to text, json or html output in Fahrenheit and Kelvin.
 
-[![NPM Version][npm-image]][npm-url]
-[![Build Status][travis-image]][travis-url]
-[![Downloads Stats][npm-downloads]][npm-url]
 
-One to two paragraph statement about your product and what it does.
+This Application is made for the course System programming for Vives Hogeschool Oostende.
+We need to make a temperature converter wich accepts input from the commandline, a textfile, an url or a mqtt.
+The output is in clear text, in a json or html.
 
-![](header.png)
+![](http://etemperature.com.au/wp-content/uploads/2016/05/Color-Temperature.jpg)
 
 ## Installation
 
-OS X & Linux:
-
-```sh
-npm install my-crazy-module --save
-```
-
 Windows:
 
-```sh
-edit autoexec.bat
+```powershell
+gem install temperature_converter_nielsvanvlaenderen
 ```
 
-## Usage example
+## Usage
 
-A few motivating and useful examples of how your product can be used. Spice this up with code blocks and potentially more screenshots.
+To use the program you need to open a commandline interface.
+Chose one way of input and one way of output listed below:
 
-_For more examples and usage, please refer to the [Wiki][wiki]._
+### input:
+| Command   | Explanation   |
+| --------- |:-------------:|
+| -t        | from cmdline  |
+| -f        | from file     |
+| -u        | from url      |
+| -m        | from mqtt     |
 
-## Development setup
+### Output:
+| Command   | Explanation  |
+| --------- |:------------:|
+| --text    | as text      |
+| --json    | as json      |
+| --html    | as html      |
 
-Describe how to install all development dependencies and how to run an automated test-suite of some kind. Potentially do this for multiple platforms.
 
-```sh
-make install
-npm test
+## Examples
+### Input from text
 ```
+temp-conv -t 16 --text
+```
+Temperature:
+16.0 °C
+60.8 °F
+289.15 K
+
+```
+temp-conv -t 16 --json
+```
+{celsius: 16.0, fahrenheit: 60.8, kelvin: 289.15}
+
+
+```
+temp-conv -t 16 --text
+```
+<div>
+        <div>16.0 °C</div>
+        <div>60.8 °F</div>
+        <div>289.15 K</div>
+</div>
+
+### Other inputs
+```
+temp-conv -f file.txt --text/--json/--html
+```
+
+```
+temp-conv -url https://labict.be/software-engineering/temperature/api/temperature/fake --text/--json/--html
+```
+
+```
+temp-conv -m --text/--json/--mqtt
+```
+(mqtt is still in development)
+
 
 ## Release History
 
-* 0.2.1
-    * CHANGE: Update docs (module code remains unchanged)
-* 0.2.0
-    * CHANGE: Remove `setDefaultXYZ()`
-    * ADD: Add `init()`
-* 0.1.1
-    * FIX: Crash when calling `baz()` (Thanks @GenerousContributorName!)
 * 0.1.0
     * The first proper release
-    * CHANGE: Rename `foo()` to `bar()`
 * 0.0.1
     * Work in progress
 
+
 ## Meta
 
-Your Name – [@YourTwitter](https://twitter.com/dbader_org) – YourEmail@example.com
+Niels Van Vlaenderen
 
-Distributed under the XYZ license. See ``LICENSE`` for more information.
+Distributed under the MIT license.
 
-[https://github.com/yourname/github-link](https://github.com/dbader/)
-
-## Contributing
-
-1. Fork it (<https://github.com/yourname/yourproject/fork>)
-2. Create your feature branch (`git checkout -b feature/fooBar`)
-3. Commit your changes (`git commit -am 'Add some fooBar'`)
-4. Push to the branch (`git push origin feature/fooBar`)
-5. Create a new Pull Request
-
-<!-- Markdown link & img dfn's -->
-[npm-image]: https://img.shields.io/npm/v/datadog-metrics.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/datadog-metrics
-[npm-downloads]: https://img.shields.io/npm/dm/datadog-metrics.svg?style=flat-square
-[travis-image]: https://img.shields.io/travis/dbader/node-datadog-metrics/master.svg?style=flat-square
-[travis-url]: https://travis-ci.org/dbader/node-datadog-metrics
-[wiki]: https://github.com/yourname/yourproject/wiki
-
-<!-- # Temperature Converter
-
->System Programming (Software Engineering)
-
-Summary:
-
-1. Description
-2. Installation
-3. Usage
-4. Information
-
-## 1  Description
-
-This app is designed to convert temperatures from Celsius into Kelvin and Farenheit.
-The input of the values can come from different locations. From the CLI, a textfile or a (fake) URL.
-
-The output of the converted temperature can be shown as text, JSON or HTML.
-
-Next to that, the application must be built memory-efficient.
-
-
-## 2  Installation
-
-
-## 3  Usage
-
-
-## 4  Information
-
-This application is made by Niels Van Vlaenderen.
-
-It's a school project for the course System Programming at Vives Oostende  2016-2017
-
-
-License:  MIT.
-
-project:  https://github.com/skrimbler/temperature_converter -->
+[https://github.com/Skrimbler](https://github.com/skrimbler/temperature_converter)
