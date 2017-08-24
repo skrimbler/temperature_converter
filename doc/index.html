@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  File: README
+  
+    &mdash; Documentation by YARD 0.9.9
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "README";
+  relpath = '';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="_index.html">Index</a> &raquo; 
+    <span class="title">File: README</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><div id='filecontents'>
+<h1 id="label-Temperature+Converter+Application">Temperature Converter Application</h1>
+
+<blockquote>
+<p>Convert temperatures in Celsius from commandline, textfile, url or mqtt to
+text, json or html output in Fahrenheit and Kelvin.</p>
+</blockquote>
+
+<p>This Application is made for the course System programming for Vives
+Hogeschool Oostende. We need to make a temperature converter wich accepts
+input from the commandline, a textfile, an url or a mqtt. The output is in
+clear text, in a json or html.</p>
+
+<p><img
+src="http://etemperature.com.au/wp-content/uploads/2016/05/Color-Temperature.jpg"></p>
+
+<h2 id="label-Installation">Installation</h2>
+
+<p>Windows:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_gem'>gem</span> <span class='id identifier rubyid_install'>install</span> <span class='id identifier rubyid_temperature_converter_nielsvanvlaenderen'>temperature_converter_nielsvanvlaenderen</span>
+</code></pre>
+
+<h2 id="label-Usage">Usage</h2>
+
+<p>To use the program you need to open a commandline interface. Chose one way
+of input and one way of output listed below:</p>
+
+<h3 id="label-input-3A">input:</h3>
+
+<p>| Command | Explanation | | ——— |:————-:| | -t | from cmdline | | -f | from
+file | | -u | from url | | -m | from mqtt |</p>
+
+<h3 id="label-Output-3A">Output:</h3>
+
+<p>| Command | Explanation | | ——— |:————:| | –text | as text | | –json | as
+json | | –html | as html |</p>
+
+<h2 id="label-Examples">Examples</h2>
+
+<h3 id="label-Input+from+text">Input from text</h3>
+
+<pre class="code ruby"><code class="ruby">temp-conv -t 16 --text</code></pre>
+
+<p>Temperature: 16.0 °C 60.8 °F 289.15 K</p>
+
+<pre class="code ruby"><code class="ruby">temp-conv -t 16 --json</code></pre>
+
+<p>16.0, fahrenheit: 60.8, kelvin: 289.15</p>
+
+<pre class="code ruby"><code class="ruby">temp-conv -t 16 --html</code></pre>
+
+<pre class="code ruby"><code class="ruby">&lt;div&gt;
+        &lt;div&gt;16.0 °C&lt;/div&gt;
+        &lt;div&gt;60.8 °F&lt;/div&gt;
+        &lt;div&gt;289.15 K&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+<h3 id="label-Other+inputs">Other inputs</h3>
+
+<pre class="code ruby"><code class="ruby">temp-conv -f file.txt --text/--json/--html</code></pre>
+
+<pre class="code ruby"><code class="ruby">temp-conv -url https://labict.be/software-engineering/temperature/api/temperature/fake --text/--json/--html</code></pre>
+
+<pre class="code ruby"><code class="ruby">temp-conv -m --text/--json/--mqtt</code></pre>
+
+<p>(mqtt is still in development)</p>
+
+<h2 id="label-Release+History">Release History</h2>
+<ul><li>
+<p>1.0.0</p>
+<ul><li>
+<p>The first proper release</p>
+</li></ul>
+</li><li>
+<p>0.0.0-0.0.999</p>
+<ul><li>
+<p>Work in progress</p>
+</li></ul>
+</li></ul>
+
+<h2 id="label-Meta">Meta</h2>
+
+<p>Niels Van Vlaenderen</p>
+
+<p>Distributed under the MIT license.</p>
+
+<p><a
+href="https://github.com/skrimbler/temperature_converter">github.com/Skrimbler/temperature_converter</a></p>
+</div></div>
+
+      <div id="footer">
+  Generated on Thu Aug 24 17:47:55 2017 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.9 (ruby-2.2.4).
+</div>
+
+    </div>
+  </body>
+</html>
