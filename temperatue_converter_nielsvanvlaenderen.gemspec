@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name        = 'temperature_converter_nielsvanvlaenderen'
   s.version     = '1.0.0'
-  s.date        = '2016-2017'
+  s.date        = '2017-08-24'
   s.summary     = "Course system programming"
   s.description = "Commandline application to convert temperatures"
   s.authors     = ["Niels Van Vlaenderen"]
