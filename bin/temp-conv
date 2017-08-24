@@ -1,3 +1,4 @@
+#!/usr/bin/env ruby
 require "./lib/temperature_converter.rb"
 require 'optparse'
 
