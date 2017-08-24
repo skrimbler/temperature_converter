@@ -6,9 +6,10 @@ class PrintText
 
 		def print
 			ttemperature = Temperature.new
-			puts "gegevens:	" + ttemperature.celsius.to_s + " °C"
-			puts ttemperature.celsius.to_s + " °C = " + ttemperature.to_fahrenheit.to_s + "	°F"
-			puts ttemperature.celsius.to_s + " °C = " + ttemperature.to_kelvin.to_s + "	°F"
+			puts "Temperature:	"
+			puts ttemperature.celsius.to_s + " °C"
+			puts ttemperature.to_fahrenheit.to_s + " °F"
+			puts ttemperature.to_kelvin.to_s + " K"
 
 			# tmp = Convert.new
 			# cel = tmp.to_celsius

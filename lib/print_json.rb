@@ -8,7 +8,7 @@ class PrintJson
 		def print
 			jtemperature = Temperature.new
 
-			puts "{\"Celsius:  #{jtemperature.celsius.to_s}\"; \"Fahrenheit: #{jtemperature.to_fahrenheit.to_s}\"; \"Kelvin: #{jtemperature.to_kelvin.to_s}\"}"
+			puts "{celsius: #{jtemperature.celsius.to_s}, fahrenheit: #{jtemperature.to_fahrenheit.to_s}, kelvin: #{jtemperature.to_kelvin.to_s}}"
 
 			# tmp = Convert.new
 			# cel = tmp.to_celsius

@@ -6,7 +6,7 @@ require 'optparse'
 
 # cmdl_input = ARGV[0]
 # file_path = "file.txt"
-# url_path = "http://labict.be/software-engineering/temperature/api/temperature/fake"
+# url_path = "https://labict.be/software-engineering/temperature/api/temperature/fake"
 
 # converter = TemperatureConverter.new
 #
