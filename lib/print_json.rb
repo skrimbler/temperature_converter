@@ -9,11 +9,5 @@ class PrintJson
 			jtemperature = Temperature.new
 
 			puts "{celsius: #{jtemperature.celsius.to_s}, fahrenheit: #{jtemperature.to_fahrenheit.to_s}, kelvin: #{jtemperature.to_kelvin.to_s}}"
-
-			# tmp = Convert.new
-			# cel = tmp.to_celsius
-			# far = tmp.to_fahrenheit
-			# kel = tmp.to_kelvin
-			# puts "{Celsius: #{cel}, fahrenheit: #{far}, kelvin: #{kel}}"
 		end
 end

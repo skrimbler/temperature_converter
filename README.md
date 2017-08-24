@@ -55,13 +55,15 @@ temp-conv -t 16 --json
 
 
 ```
-temp-conv -t 16 --text
+temp-conv -t 16 --html
+```
 ```
 <div>
         <div>16.0 °C</div>
         <div>60.8 °F</div>
         <div>289.15 K</div>
 </div>
+```
 
 ### Other inputs
 ```
@@ -80,9 +82,9 @@ temp-conv -m --text/--json/--mqtt
 
 ## Release History
 
-* 0.1.0
+* 1.0.0
     * The first proper release
-* 0.0.1
+* 0.0.0-0.0.999
     * Work in progress
 
 
@@ -92,4 +94,4 @@ Niels Van Vlaenderen
 
 Distributed under the MIT license.
 
-[https://github.com/Skrimbler](https://github.com/skrimbler/temperature_converter)
+[https://github.com/Skrimbler/temperature_converter](https://github.com/skrimbler/temperature_converter)
