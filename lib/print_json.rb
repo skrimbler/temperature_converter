@@ -6,8 +6,8 @@ class PrintJson
 	attr_reader :temperature
 
 		def print
-			jtemperature = Temperature.new
+			jsontemerature = Temperature.new
 
-			puts "{celsius: #{jtemperature.celsius.to_s}, fahrenheit: #{jtemperature.to_fahrenheit.to_s}, kelvin: #{jtemperature.to_kelvin.to_s}}"
+			puts "{celsius: #{jsontemerature.celsius.to_s}, fahrenheit: #{jsontemerature.to_fahrenheit.to_s}, kelvin: #{jsontemerature.to_kelvin.to_s}}"
 		end
 end

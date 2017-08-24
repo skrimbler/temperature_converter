@@ -13,35 +13,35 @@ options = {}
 OptionParser.new do |opts|
   opts.banner = "Usage: ruby app.rb [options]"
 
-  opts.on("-t temperature","--temperature temperature","Give number to convert") do |temperature|
+  opts.on("-t cmdline","--temperature cmdline", "from cmdline") do |temperature|
     converter.commandline_temperature temperature
   end
 
 
-  opts.on("-f file","--file file","convert from file") do |file|
+  opts.on("-f file","--file file","from file") do |file|
     converter.file_temperature file
   end
 
 
-  opts.on("-u url","--url url","convert from url") do |url|
+  opts.on("-u url","--url url","from url") do |url|
   converter.url_temperature url
   end
 
-  opts.on("-m mqtt","--mqtt mqtt","convert from mqtt") do |mqtt|
+  opts.on("-m mqtt","--mqtt mqtt","from mqtt") do |mqtt|
   converter.mqtt_reader(ttn_host, port, username, password, sensor_id)
   end
 
-  opts.on("--text","give output in plain text") do |text|
+  opts.on("--text","to text") do |text|
     puts converter.to_text
   end
 
 
-  opts.on("--json","give output in JSON string") do |json|
+  opts.on("--json","to json") do |json|
     puts converter.to_json
   end
 
 
-  opts.on("--html","give output in html format") do |html|
+  opts.on("--html","to html") do |html|
     puts converter.to_html
   end
 end.parse!
